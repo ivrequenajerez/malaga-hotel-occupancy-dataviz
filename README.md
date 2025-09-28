@@ -35,7 +35,7 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 
 ---
 
-## por qué interesa a un reclutador (xceed-style)
+## DE INTERÉS (xceed-style)
 
 * **ssr/ssg + seo**: páginas públicas generadas de forma estática con revalidación.
 * **core web vitals**: fuente con `next/font`, layout estable (altura fija del gráfico), bundle mínimo.
