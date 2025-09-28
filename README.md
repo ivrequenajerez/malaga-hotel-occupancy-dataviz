@@ -1,4 +1,4 @@
-````markdown
+
 # malaga-hotel-occupancy-dataviz
 
 visualización de la **ocupación hotelera de málaga** por mes y por distrito. stack moderno con **next.js (app router, typescript)** y gráficos con **recharts**, orientado a **rendimiento (core web vitals)**, **seo/ssg**, **accesibilidad** y **tests**.
@@ -20,7 +20,7 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 - este repo usa un script para dejar un **json “largo/ordenado”** en `data/clean/ocupacion.json` con esquema:
   ```ts
   { mes: "yyyy-mm", distrito: "centro|este|...", ocupacion_pct: number } // 0–100
-````
+
 
 ---
 
@@ -45,33 +45,9 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 
 ---
 
-## estructura
-
-```
-.
-├─ data/
-│  ├─ raw/           # ficheros originales (no comitear grandes)
-│  └─ clean/         # salida normalizada (ocupacion.json)
-├─ scripts/
-│  └─ prepare_data.ts # descarga/parseo/validación/export
-├─ src/
-│  ├─ app/
-│  │  └─ page.tsx    # página principal (ssg + revalidate)
-│  ├─ components/
-│  │  └─ OcupacionBars.tsx
-│  └─ lib/
-│     └─ types.ts
-├─ tests/            # e2e (playwright) – separado de unit
-├─ vitest.config.ts
-├─ vitest.setup.ts
-└─ README.md
-```
-
----
-
 ## empezar (local)
 
-**requisitos**: node 18+ (recomendado 20 lts)
+**requisitos/versiones**: node 22.18.0
 
 ```bash
 # instalar dependencias
@@ -122,6 +98,7 @@ npm run dev
   * [ ] foco visible en elementos interactivos
   * [ ] nombres accesibles/aria-label en el gráfico
   * [ ] contraste suficiente para texto e indicadores
+ 
 * **rendimiento & cwv**
 
   * [ ] `next/font` para evitar cls
