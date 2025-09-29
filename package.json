@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "npm run prepare:data",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "eslint",
     "test": "vitest",
     "test:run": "vitest run",
+    "pree2e": "npm run build",
     "e2e": "playwright test",
     "prepare:data": "tsx scripts/prepare_data.ts"
   },

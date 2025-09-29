@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { RegistroOcupacion } from "../../lib/types";
 import HeatmapMesAnio from "../../components/HeatmapMesAnio";
+import HeatmapWithControls from "../../components/HeatmapWithControls";
 import Link from "next/link";
 
 export const revalidate = 3600;
@@ -20,7 +21,7 @@ export default async function HeatmapPage() {
         <p className="text-neutral-600">calendario año × mes (0–100%)</p>
       </header>
 
-      <HeatmapMesAnio data={data} />
+      <HeatmapWithControls data={data} />
 
       <footer className="mt-6 text-sm text-neutral-600">
         <Link href="/">← volver</Link>

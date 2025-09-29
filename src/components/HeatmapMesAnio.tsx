@@ -76,10 +76,14 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
         </p>
       </div>
 
-      <div className="overflow-x-auto">
+      <div
+        className="overflow-x-auto"
+        style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
+      >
         <table
           className="border-collapse"
           aria-label="mapa de calor de ocupación por año y mes"
+          data-testid="heatmap-table"
         >
           <thead>
             <tr>
