@@ -3,7 +3,12 @@ import path from "node:path";
 import OcupacionBars from "../components/OcupacionBars";
 import type { RegistroOcupacion } from "../lib/types";
 
-export const revalidate = 3600; // ssg con revalidación
+export const revalidate = 3600;
+
+export const metadata = {
+  title: "inicio",
+  description: "introducción y acceso a visualizaciones de ocupación hotelera.",
+};
 
 export default async function Page() {
   const file = path.join(process.cwd(), "data/clean/ocupacion.json");
