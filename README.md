@@ -9,7 +9,7 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 
 ## demo
 - deploy: _pendiente_ (vercel)
-- captura: _pendiente_ (`/public/preview.png`)
+- captura: `/public/preview.png`
 
 ---
 
@@ -101,7 +101,6 @@ npm run dev
  
 * **rendimiento & cwv**
 
-  * [ ] `next/font` para evitar cls
   * [ ] altura fija del contenedor del gráfico
   * [ ] ssg con `revalidate` para páginas públicas
   * [ ] evitar librerías innecesarias en la home

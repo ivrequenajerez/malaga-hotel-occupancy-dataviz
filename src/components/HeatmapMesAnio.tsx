@@ -104,7 +104,7 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
   return (
     <div className="w-full">
       <div className="flex items-baseline justify-between mb-3">
-        <h3 className="text-lg font-medium">heatmap año × mes (ocupación %)</h3>
+        <h2 className="text-lg font-medium">heatmap año × mes (ocupación %)</h2>
         <p className="text-sm text-neutral-600">
           rango: {minY}–{maxY}
         </p>
@@ -165,6 +165,7 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
                     <td key={i} className="p-0">
                       <button
                         aria-label={label}
+                        title={label}
                         tabIndex={0}
                         data-r={rowIndex}
                         data-c={i}
