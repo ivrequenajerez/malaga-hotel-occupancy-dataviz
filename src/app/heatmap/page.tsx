@@ -24,6 +24,7 @@ export default async function HeatmapPage() {
           ocupación hotelera · málaga (municipio)
         </h1>
         <p className="text-neutral-600">calendario año × mes (0–100%)</p>
+        
       </header>
 
       <HeatmapWithControls data={data} />
