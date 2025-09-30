@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 export const metadata = {
   title: "inicio",
-  description: "introducción y acceso a visualizaciones de ocupación hotelera.",
+  description: "introducción y acceso a visualizaciones de ocupación hotelera",
 };
 
 export default async function Page() {
