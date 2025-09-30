@@ -6,6 +6,12 @@ import Link from "next/link";
 
 export const revalidate = 3600;
 
+export const metadata = {
+  title: "Heatmap de ocupación hotelera en Málaga",
+  description:
+    "Visualización interactiva de la ocupación hotelera en Málaga por año y mes. Consulta datos históricos y tendencias en un mapa de calor claro y accesible.",
+};
+
 export default async function HeatmapPage() {
   const file = path.join(process.cwd(), "data/clean/ocupacion.json");
   const raw = fs.readFileSync(file, "utf-8");
