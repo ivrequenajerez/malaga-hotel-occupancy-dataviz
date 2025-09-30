@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { RegistroOcupacion } from "../../lib/types";
-import HeatmapMesAnio from "../../components/HeatmapMesAnio";
 import HeatmapWithControls from "../../components/HeatmapWithControls";
 import Link from "next/link";
 

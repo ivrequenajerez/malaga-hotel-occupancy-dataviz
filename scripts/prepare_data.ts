@@ -152,26 +152,13 @@ function main() {
       'aviso: no hay columna de distrito en este csv; usaré "ocupación" (nivel municipal).'
     );
   }
-  console.log("fila cruda (ejemplo):", rows[0]);
-  console.log(
-    "fecha cruda:",
-    rows[0]?.[colFecha!],
-    "→",
-    yyyyMmFromAny(String(rows[0]?.[colFecha!]))
-  );
-  console.log(
-    "ocup crudo:",
-    rows[0]?.[colOcup!],
-    "→",
-    toNumber(rows[0]?.[colOcup!])
-  );
 
   const out = rows
 
     .map((r) => {
       const distrito = colDistrito
         ? slug(String(r[colDistrito] ?? ""))
-        : "ocupación";
+        : "malaga";
 
       const ocup = toNumber(r[colOcup!]);
 
