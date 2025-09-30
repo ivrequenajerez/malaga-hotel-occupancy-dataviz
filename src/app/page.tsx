@@ -13,10 +13,16 @@ export default async function Page() {
   return (
     <main id="contenido" className="p-6 max-w-5xl mx-auto">
       <header className="mb-6">
-        <h1 className="text-2xl font-semibold">ocupación hotelera · málaga</h1>
-        <p className="text-neutral-600">comparación por distrito (barras por mes)</p>
+        <h1 className="text-2xl font-semibold">
+          ocupación mensual (municipio de málaga)
+        </h1>
       </header>
       <OcupacionBars data={data} />
+      <p className="mt-4">
+        <a className="underline" href="/heatmap">
+          ver heatmap año×mes →
+        </a>
+      </p>
     </main>
   );
 }
