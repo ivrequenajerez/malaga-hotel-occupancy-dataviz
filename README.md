@@ -14,8 +14,9 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 ---
 
 ## datos
-- fuente: datos abiertos del ayuntamiento de málaga — **ocupación hotelera**  
-  https://opendata.malaga.es/dataset/ocupacionhotelera  
+- fuente: descargué un csv de datos abiertos del ayuntamiento de málaga — **ocupación hotelera**  
+  https://opendata.malaga.es/dataset/ocupacionhotelera
+- el próximo paso es consumir directamente desde la api oficial de la opendata de malaga...
 - formatos disponibles: csv, json, xlsx, xml  
 - este repo usa un script para dejar un **json “largo/ordenado”** en `data/clean/ocupacion.json` con esquema:
   ```ts
