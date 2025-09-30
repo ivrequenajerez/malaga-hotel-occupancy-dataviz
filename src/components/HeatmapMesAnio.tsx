@@ -66,6 +66,40 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
     );
     return PALETTE[idx];
   };
+  const onGridKeyDown: React.KeyboardEventHandler<HTMLTableElement> = (e) => {
+    const key = e.key;
+    if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key))
+      return;
+
+    const target = e.target as HTMLElement | null;
+    if (!target) return;
+
+    // buscamos el botón “celda”
+    const btn = target.closest(
+      "button[data-r][data-c]"
+    ) as HTMLButtonElement | null;
+    if (!btn) return;
+
+    e.preventDefault();
+
+    const r = Number(btn.dataset.r); // fila
+    const c = Number(btn.dataset.c); // columna
+
+    let nr = r,
+      nc = c;
+    if (key === "ArrowUp") nr = r - 1;
+    if (key === "ArrowDown") nr = r + 1;
+    if (key === "ArrowLeft") nc = c - 1;
+    if (key === "ArrowRight") nc = c + 1;
+
+    const next = btn
+      .closest("table")
+      ?.querySelector<HTMLButtonElement>(
+        `button[data-r="${nr}"][data-c="${nc}"]`
+      );
+
+    if (next) next.focus();
+  };
 
   return (
     <div className="w-full">
@@ -84,21 +118,32 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
           className="border-collapse"
           aria-label="mapa de calor de ocupación por año y mes"
           data-testid="heatmap-table"
+          onKeyDown={onGridKeyDown}
         >
+          <caption id="cap-heatmap">
+            ocupación mensual (municipio de málaga)
+          </caption>
           <thead>
             <tr>
-              <th className="text-left text-xs font-normal pr-2 py-1 sticky left-0 bg-white">
+              <th
+                className="text-left text-xs font-normal pr-2 py-1 sticky left-0 bg-white"
+                scope="col"
+              >
                 año
               </th>
               {mesesCorto.map((m) => (
-                <th key={m} className="text-xs font-normal px-1 py-1">
+                <th
+                  key={m}
+                  className="text-xs font-normal px-1 py-1"
+                  scope="col"
+                >
                   {m}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {years.map((y) => (
+            {years.map((y, rowIndex) => (
               <tr key={y}>
                 <th
                   scope="row"
@@ -106,19 +151,24 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
                 >
                   {y}
                 </th>
+                
                 {mesesCorto.map((_, i) => {
+
                   const v = valueOf(y, i + 1);
-                  const title =
+                  const mm = String(i + 1).padStart(2, "0");
+                  const label =
                     v == null
-                      ? `${y}-${String(i + 1).padStart(2, "0")}: sin dato`
-                      : `${y}-${String(i + 1).padStart(2, "0")}: ${v}%`;
+                      ? `${y}-${mm}: sin dato`
+                      : `${y}-${mm}: ${v}% ocupación`;
+
                   return (
-                    <td key={i} title={title} className="p-0">
-                      <div
-                        role="img"
-                        aria-label={title}
+                    <td key={i} className="p-0">
+                      <button
+                        aria-label={label}
                         tabIndex={0}
-                        className="w-7 h-7 sm:w-8 sm:h-8 outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500"
+                        data-r={rowIndex}
+                        data-c={i}
+                        className="w-7 h-7 sm:w-8 sm:h-8 rounded outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500 border border-transparent focus:border-black/40"
                         style={{ background: colorFor(v) }}
                       />
                     </td>
@@ -128,6 +178,9 @@ export default function HeatmapMesAnio({ data, fromYear, toYear }: Props) {
             ))}
           </tbody>
         </table>
+        <p id="legend" className="sr-only">
+          más oscuro = mayor ocupación
+        </p>
       </div>
 
       {/* leyenda */}

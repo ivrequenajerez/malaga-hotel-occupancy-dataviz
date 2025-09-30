@@ -14,8 +14,7 @@ test.describe("heatmap", () => {
     const rows = await table.locator("tbody tr").count();
     expect(rows).toBeGreaterThanOrEqual(5);
 
-    // check accesible simple en una celda
-    const anyCell = table.getByRole("img").first();
+    const anyCell = table.getByRole("button").first();
     await expect(anyCell).toHaveAttribute("aria-label", /20\d{2}-\d{2}/);
   });
 });

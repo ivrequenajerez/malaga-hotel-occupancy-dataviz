@@ -3,6 +3,45 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --cell-min: 0.08;
+  --cell-max: 0.92;
+}
+
+.cell {
+  display: inline-block;
+  width: 2rem;
+  height: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.cell[data-value] {
+  background-color: hsl(
+    210,
+    35%,
+    calc(
+      var(--cell-max) * 100% -
+        ((var(--cell-max) - var(--cell-min)) * 1% * attr(data-value number))
+    )
+  );
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0px;
+}
+.skip-link:focus-visible {
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  outline: 3px solid;
+}
+
+:focus-visible {
+  outline: 3px solid;
+  outline-offset: 2px;
 }
 
 @theme inline {
@@ -16,6 +55,19 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .cell {
+    border-color: black;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
