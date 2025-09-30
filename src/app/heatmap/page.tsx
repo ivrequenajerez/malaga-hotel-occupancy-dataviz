@@ -7,9 +7,9 @@ import Link from "next/link";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "heatmap ocupación hotelera",
+  title: "Heatmap de ocupación hotelera en Málaga",
   description:
-    "mapa de calor año × mes de la ocupación hotelera en el municipio de málaga.",
+    "Visualización interactiva de la ocupación hotelera en Málaga por año y mes. Consulta datos históricos y tendencias en un mapa de calor claro y accesible.",
 };
 
 export default async function HeatmapPage() {
@@ -24,7 +24,6 @@ export default async function HeatmapPage() {
           ocupación hotelera · málaga (municipio)
         </h1>
         <p className="text-neutral-600">calendario año × mes (0–100%)</p>
-        
       </header>
 
       <HeatmapWithControls data={data} />
