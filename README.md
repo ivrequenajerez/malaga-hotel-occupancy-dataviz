@@ -8,7 +8,7 @@ visualización de la **ocupación hotelera de málaga** por mes y por distrito. 
 ---
 
 ## demo
-- deploy: _pendiente_ (vercel)
+- deploy: [https://malaga-hotel-occupancy-dataviz.vercel.app/](url)
 - captura: `/public/preview.png`
 
 ---
